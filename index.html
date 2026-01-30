@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>News Homepage</title>
+
+    <style>
+      body {
+        background: #f6f5f1;
+        display: flex;
+        justify-content: center;
+        font-family: Arial, sans-serif;
+        margin: 0;
+      }
+
+      /* MAIN */
+      .main {
+        width: 900px;
+        padding: 20px;
+      }
+
+      /* HEADER */
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      /* DESKTOP NAV */
+      nav {
+        display: flex;
+        gap: 20px;
+        font-size: 14px;
+        opacity: 0.7;
+      }
+
+      /* HAMBURGER */
+      .menu-btn {
+        display: none;
+        font-size: 26px;
+        cursor: pointer;
+      }
+
+      /* MOBILE MENU */
+      .mobile-menu {
+        display: none;
+        flex-direction: column;
+        background: white;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      }
+
+      .mobile-menu p {
+        margin: 10px 0;
+      }
+
+      /* GRID */
+      .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 300px 250px 150px;
+        gap: 20px;
+        grid-template-areas:
+          "box1 box1 box2"
+          "box3 box4 box2"
+          "box5 box6 box7";
+      }
+
+      /* IMAGE */
+      .box1 img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* RIGHT DARK */
+      .box2 {
+        background: #02001a;
+        padding: 20px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .box2 h2 {
+        color: orange;
+      }
+
+      .news-block {
+        border-bottom: 1px solid #555;
+        padding-bottom: 15px;
+      }
+
+      /* BIG TITLE */
+      .box3 {
+        font-size: 36px;
+        font-weight: bold;
+      }
+
+      /* TEXT */
+      .box4 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .box4 p {
+        opacity: 0.7;
+        font-size: 14px;
+      }
+
+      .box4 button {
+        background: #f25c54;
+        border: none;
+        padding: 12px;
+        width: 150px;
+        font-weight: bold;
+        letter-spacing: 2px;
+      }
+
+      /* BOTTOM CARDS */
+      .bottom-card {
+        display: flex;
+        gap: 15px;
+      }
+
+      .bottom-card img {
+        width: 90px;
+      }
+
+      .bottom-text h2 {
+        color: brown;
+      }
+
+      .bottom-text p {
+        font-size: 13px;
+        opacity: 0.7;
+      }
+
+      .title {
+        font-weight: bold;
+        opacity: 1;
+      }
+
+      /* ===================== */
+      /* MOBILE VERSION */
+      /* ===================== */
+
+      @media (max-width: 768px) {
+        .main {
+          width: 100%;
+        }
+
+        /* NAV CHANGE */
+        nav {
+          display: none;
+        }
+
+        .menu-btn {
+          display: block;
+        }
+
+        /* GRID MOBILE */
+        .grid-container {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "box1"
+            "box3"
+            "box4"
+            "box2"
+            "box5"
+            "box6"
+            "box7";
+        }
+
+        /* BUTTON FULL */
+        .box4 button {
+          width: 100%;
+        }
+
+        /* TEXT SIZE */
+        .box3 {
+          font-size: 28px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main">
+      <header>
+        <h2>W.</h2>
+
+        <!-- DESKTOP MENU -->
+        <nav>
+          <p>Home</p>
+          <p>New</p>
+          <p>Popular</p>
+          <p>Trending</p>
+          <p>Categories</p>
+        </nav>
+
+        <!-- HAMBURGER -->
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+      </header>
+
+      <!-- MOBILE MENU -->
+      <div class="mobile-menu" id="mobileMenu">
+        <p>Home</p>
+        <p>New</p>
+        <p>Popular</p>
+        <p>Trending</p>
+        <p>Categories</p>
+      </div>
+
+      <section class="grid-container">
+        <div class="box1" style="grid-area: box1">
+          <img src="assets/images/image-web-3-desktop.jpg" />
+        </div>
+
+        <div class="box3" style="grid-area: box3">
+          The Bright <br />
+          Future of <br />
+          Web 3.0?
+        </div>
+
+        <div class="box4" style="grid-area: box4">
+          <p>
+            We dive into the next evolution of the web that claims to put the
+            power of platforms back into the hands of the people.
+          </p>
+          <button>READ MORE</button>
+        </div>
+
+        <div class="box2" style="grid-area: box2">
+          <h2>New</h2>
+
+          <div class="news-block">
+            <p><b>Hydrogen VS Electric Cars</b></p>
+            <p style="opacity: 0.7; font-size: 13px">
+              Will hydrogen-fueled cars ever catch up to EVs?
+            </p>
+          </div>
+
+          <div class="news-block">
+            <p><b>The Downsides of AI Artistry</b></p>
+            <p style="opacity: 0.7; font-size: 13px">
+              What are the possible adverse effects of AI generation?
+            </p>
+          </div>
+
+          <div>
+            <p><b>Is VC Funding Drying Up?</b></p>
+            <p style="opacity: 0.7; font-size: 13px">
+              Private funding by VC firms is down 50% YOY.
+            </p>
+          </div>
+        </div>
+
+        <div class="bottom-card" style="grid-area: box5">
+          <img src="assets/images/image-retro-pcs.jpg" />
+          <div class="bottom-text">
+            <h2>01</h2>
+            <p class="title">Reviving Retro PCs</p>
+            <p>What happens when old PCs are given modern upgrades?</p>
+          </div>
+        </div>
+
+        <div class="bottom-card" style="grid-area: box6">
+          <img src="assets/images/image-top-laptops.jpg" />
+          <div class="bottom-text">
+            <h2>02</h2>
+            <p class="title">Top 10 Laptops of 2022</p>
+            <p>Our best picks for various needs and budgets.</p>
+          </div>
+        </div>
+
+        <div class="bottom-card" style="grid-area: box7">
+          <img src="assets/images/image-gaming-growth.jpg" />
+          <div class="bottom-text">
+            <h2>03</h2>
+            <p class="title">The Growth of Gaming</p>
+            <p>How the pandemic has sparked fresh opportunities.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      function toggleMenu() {
+        const menu = document.getElementById("mobileMenu");
+
+        if (menu.style.display === "flex") {
+          menu.style.display = "none";
+        } else {
+          menu.style.display = "flex";
+        }
+      }
+    </script>
+  </body>
+</html>
